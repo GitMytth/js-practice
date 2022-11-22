@@ -137,33 +137,22 @@ function sequence(start, step) {
  */
 function deepEqual(firstObject, secondObject) {
 
-    if (firstObject === secondObject){
-
+    if (Object.is(firstObject,secondObject)){
         return true;
-
     }
-    else if(firstObject && secondObject && typeof(firstObject) === 'object' && typeof(secondObject) === 'object' && 
+
+    if(typeof(firstObject) === 'object' && typeof(secondObject) === 'object' && 
     Object.keys(firstObject).length === Object.keys(secondObject).length){
-
             for (let key in firstObject){
-
                 if(key in secondObject){
-
                    if(!deepEqual(firstObject[key], secondObject[key])){
-
                        return false;
-
                    }
-                   
                 }
-
                 else return false;
             }
-
             return true;
-
     }
-
     return false;
 }
 
